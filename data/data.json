@@ -1,17 +1,17 @@
 {
   "Header": {
     "title": "Welcome To Core AI Toc H",
-    "paragraph": "At Core AI Toc H, we envision a collaborative and innovative AI community where learning, creativity, and technology converge to empower individuals and shape the future of artificial intelligence."
+    "paragraph": "At Core AI, we envision a collaborative and innovative AI community where learning, creativity, and technology converge to empower individuals and shape the future of artificial intelligence."
   },
   "About": {
     "paragraph": "We are a group of Engineering students and AI pioneers focused in driving innovation and making our mark in Kerala’s AI Landscape.Whether you're a beginner or an expert, our community provides a space to grow, share knowledge, and work on impactful AI solutions. Through workshops and real-world projects, we empower students to turn ideas into AI-reality.",
-    "Why": [
+    "why": [
       "Promote AI Awareness",
       "Build Collaborative AI Projects",
-      "Skill Development and Knowledger",
+      "Skill Development and Knowledge",
       "Establish the AI presence for our college in Kerala"
     ],
-    "Why2": [
+    "why2": [
       "Bridge the Gap Between Academia and Industry",
       "Support Open-Source Contributions",
       "Group Project",
@@ -22,7 +22,8 @@
     {
       "title": "AI 101 Talk to the Future",
       "largeImage": "img/team/workshops/Ai 101.jpeg",
-      "smallImage": "img/team/workshops/Ai 101.jpeg"
+      "smallImage": "img/team/workshops/Ai 101.jpeg",
+      "span": { "columns": 2, "rows": 1 }
     },
     {
       "title": "AI Builder Bootcamp",
@@ -32,7 +33,8 @@
     {
       "title": "First Step First",
       "largeImage": "img/team/workshops/first_step_first.jpeg",
-      "smallImage": "img/team/workshops/first_step_first.jpeg"
+      "smallImage": "img/team/workshops/first_step_first.jpeg",
+      "span": { "columns": 1, "rows": 2 }
     },
     {
       "title": "Unlock Future Gen AI",
@@ -52,7 +54,8 @@
     {
       "title": "Host Smart with AWS",
       "largeImage": "img/team/workshops/festin_aws.jpg",
-      "smallImage": "img/team/workshops/festin_aws_small.jpg"
+      "smallImage": "img/team/workshops/festin_aws_small.jpg",
+      "span": { "columns": 2, "rows": 1 }
     },
     {
       "title": "Flask Gateway",
@@ -72,7 +75,8 @@
     {
       "title": "Online Computer Vision Workshop",
       "largeImage": "img/team/workshops/devanandha_cv_w.jpg",
-      "smallImage": "img/team/workshops/devanandha_cv_w_small.jpg"
+      "smallImage": "img/team/workshops/devanandha_cv_w_small.jpg",
+      "span": { "columns": 1, "rows": 2 }
     },
     {
       "title": "Offline Flask Workshop",
@@ -92,7 +96,8 @@
     {
       "title": "Streamlit",
       "largeImage": "img/team/workshops/devanandha.jpg",
-      "smallImage": "img/team/workshops/devanandha_small.jpg"
+      "smallImage": "img/team/workshops/devanandha_small.jpg",
+      "span": { "columns": 2, "rows": 1 }
     },
     {
       "title": "Intro To Computer Science",
@@ -222,7 +227,7 @@
     "email": "coreaitoch@gmail.com",
     "instagram": "core.ai_toch",
     "twitter": "core.ai_toch",
-    "Thread": "core.ai_toch"
+    "thread": "core.ai_toch"
   },
   "Features": [
     {

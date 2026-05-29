@@ -31,7 +31,7 @@ export default function About({ data }: AboutProps) {
 
   if (!data) return null;
 
-  const allItems = [...data.Why, ...data.Why2];
+  const allItems = [...data.why, ...data.why2];
 
   return (
     <section id="about" ref={sectionRef} style={{ padding: "128px 0", background: "#080808", position: "relative" }}>

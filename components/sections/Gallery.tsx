@@ -14,7 +14,9 @@ interface GalleryProps { data?: GalleryData[]; }
 
 export default function Gallery({ data }: GalleryProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [selected, setSelected] = useState<{ src: string; title: string } | null>(null);
+  const [closeFocused, setCloseFocused] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,8 +30,37 @@ export default function Gallery({ data }: GalleryProps) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = selected ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    if (!selected) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selected]);
+
+  useEffect(() => {
+    if (!selected) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelected(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (previouslyFocused && document.contains(previouslyFocused)) {
+        try {
+          previouslyFocused.focus();
+        } catch (error) {
+          console.error("Failed to restore focus after closing lightbox:", error);
+        }
+      }
+    };
   }, [selected]);
 
   if (!data) return null;
@@ -86,10 +117,6 @@ export default function Gallery({ data }: GalleryProps) {
           gap: "6px",
         }} className="gal-grid">
           {data.map((item, index) => {
-            const syncedSmallTitles = new Set(["Intro To Computer Science", "Git Basics", "Offline Session", "Web Scrapping"]);
-            const isSyncedSmall = syncedSmallTitles.has(item.title);
-            const isWide = !isSyncedSmall && index % 7 === 0;
-            const isTall = !isSyncedSmall && index % 5 === 2;
             return (
               <div
                 key={index}
@@ -102,8 +129,8 @@ export default function Gallery({ data }: GalleryProps) {
                   overflow: "hidden",
                   cursor: "pointer",
                   background: "#0d0d0d",
-                  gridColumn: isWide ? "span 2" : "span 1",
-                  gridRow: isTall ? "span 2" : "span 1",
+                  gridColumn: item.span?.columns === 2 ? "span 2" : "span 1",
+                  gridRow: item.span?.rows === 2 ? "span 2" : "span 1",
                 }}
                 onMouseEnter={(e) => {
                   const img = e.currentTarget.querySelector("img") as HTMLElement;
@@ -165,6 +192,9 @@ export default function Gallery({ data }: GalleryProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
             onClick={() => setSelected(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selected.title}
             style={{
               position: "fixed", inset: 0, zIndex: 200,
               background: "rgba(4,4,4,0.97)",
@@ -227,15 +257,21 @@ export default function Gallery({ data }: GalleryProps) {
             </motion.div>
 
             <button
+              ref={closeButtonRef}
               onClick={() => setSelected(null)}
+              onFocus={() => setCloseFocused(true)}
+              onBlur={() => setCloseFocused(false)}
+              aria-label="Close gallery lightbox"
               style={{
                 position: "fixed", top: "20px", right: "20px",
                 width: "36px", height: "36px", borderRadius: "6px",
                 background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: closeFocused ? "1px solid rgba(167,139,250,0.95)" : "1px solid rgba(255,255,255,0.08)",
                 color: "rgba(255,255,255,0.6)", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 transition: "all 0.15s",
+                outline: closeFocused ? "2px solid rgba(167,139,250,0.35)" : "none",
+                outlineOffset: "2px",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)";

@@ -5,8 +5,8 @@ export interface HeaderData {
 
 export interface AboutData {
   paragraph: string;
-  Why: string[];
-  Why2: string[];
+  why: string[];
+  why2: string[];
 }
 
 export interface ServiceData {
@@ -19,6 +19,10 @@ export interface GalleryData {
   title: string;
   largeImage: string;
   smallImage: string;
+  span?: {
+    columns?: 1 | 2;
+    rows?: 1 | 2;
+  };
 }
 
 export interface TestimonialData {
@@ -39,7 +43,13 @@ export interface ContactData {
   email: string;
   instagram: string;
   twitter: string;
-  Thread: string;
+  thread: string;
+}
+
+export interface Feature {
+  icon: string;
+  title: string;
+  text: string;
 }
 
 export interface LandingPageData {
@@ -50,4 +60,5 @@ export interface LandingPageData {
   Testimonials: TestimonialData[];
   Team: TeamMember[];
   Contact: ContactData;
+  Features?: Feature[];
 }
