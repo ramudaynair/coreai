@@ -1,7 +1,6 @@
 import SiteLanding from "@/components/SiteLanding";
+import { SectionId, VALID_SECTIONS } from "@/lib/constants";
 import { notFound } from "next/navigation";
-
-const validSections = new Set(["about", "services", "gallery", "team", "contact"]);
 
 interface SectionPageProps {
   params: Promise<{ section: string }>;
@@ -10,9 +9,9 @@ interface SectionPageProps {
 export default async function SectionPage({ params }: SectionPageProps) {
   const { section } = await params;
 
-  if (!validSections.has(section)) {
+  if (!VALID_SECTIONS.has(section)) {
     notFound();
   }
 
-  return <SiteLanding section={section as "about" | "services" | "gallery" | "team" | "contact"} />;
+  return <SiteLanding section={section as SectionId} />;
 }
