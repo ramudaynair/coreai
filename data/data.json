@@ -1,0 +1,249 @@
+{
+  "Header": {
+    "title": "Welcome To Core AI Toc H",
+    "paragraph": "At Core AI Toc H, we envision a collaborative and innovative AI community where learning, creativity, and technology converge to empower individuals and shape the future of artificial intelligence."
+  },
+  "About": {
+    "paragraph": "We are a group of Engineering students and AI pioneers focused in driving innovation and making our mark in Kerala’s AI Landscape.Whether you're a beginner or an expert, our community provides a space to grow, share knowledge, and work on impactful AI solutions. Through workshops and real-world projects, we empower students to turn ideas into AI-reality.",
+    "Why": [
+      "Promote AI Awareness",
+      "Build Collaborative AI Projects",
+      "Skill Development and Knowledger",
+      "Establish the AI presence for our college in Kerala"
+    ],
+    "Why2": [
+      "Bridge the Gap Between Academia and Industry",
+      "Support Open-Source Contributions",
+      "Group Project",
+      "Enhance Learning"
+    ]
+  },
+  "Gallery": [
+    {
+      "title": "AI 101 Talk to the Future",
+      "largeImage": "img/team/workshops/Ai 101.jpeg",
+      "smallImage": "img/team/workshops/Ai 101.jpeg"
+    },
+    {
+      "title": "AI Builder Bootcamp",
+      "largeImage": "img/team/workshops/ai_bootcamp.jpeg",
+      "smallImage": "img/team/workshops/ai_bootcamp.jpeg"
+    },
+    {
+      "title": "First Step First",
+      "largeImage": "img/team/workshops/first_step_first.jpeg",
+      "smallImage": "img/team/workshops/first_step_first.jpeg"
+    },
+    {
+      "title": "Unlock Future Gen AI",
+      "largeImage": "img/team/workshops/unlock future genai.jpeg",
+      "smallImage": "img/team/workshops/unlock future genai.jpeg"
+    },
+    {
+      "title": "DL 101 From Zero to Neural",
+      "largeImage": "img/team/workshops/DL_101.jpeg",
+      "smallImage": "img/team/workshops/DL_101.jpeg"
+    },
+    {
+      "title": "Open Mic",
+      "largeImage": "img/team/workshops/open_mic.jpeg",
+      "smallImage": "img/team/workshops/open_mic.jpeg"
+    },
+    {
+      "title": "Host Smart with AWS",
+      "largeImage": "img/team/workshops/festin_aws.jpg",
+      "smallImage": "img/team/workshops/festin_aws_small.jpg"
+    },
+    {
+      "title": "Flask Gateway",
+      "largeImage": "img/team/workshops/fidhaan_flask.jpg",
+      "smallImage": "img/team/workshops/fidhaan_flask_small.jpg"
+    },
+    {
+      "title": "Computer Vision - 1",
+      "largeImage": "img/team/workshops/devanandha_cv.jpg",
+      "smallImage": "img/team/workshops/devanandha_cv_small.jpg"
+    },
+    {
+      "title": "Introduction to  Classical Machine Learning",
+      "largeImage": "img/team/workshops/pranav_ml.jpg",
+      "smallImage": "img/team/workshops/pranav_ml_small.jpg"
+    },
+    {
+      "title": "Online Computer Vision Workshop",
+      "largeImage": "img/team/workshops/devanandha_cv_w.jpg",
+      "smallImage": "img/team/workshops/devanandha_cv_w_small.jpg"
+    },
+    {
+      "title": "Offline Flask Workshop",
+      "largeImage": "img/team/workshops/fidhan_f1.jpg",
+      "smallImage": "img/team/workshops/fidhan_f1.jpg"
+    },
+    {
+      "title": "Web Scrapping",
+      "largeImage": "img/team/workshops/alwin.jpg",
+      "smallImage": "img/team/workshops/alwin.jpg"
+    },
+    {
+      "title": "Python Basics",
+      "largeImage": "img/team/workshops/pranav1.jpg",
+      "smallImage": "img/team/workshops/pranav1_small.jpg"
+    },
+    {
+      "title": "Streamlit",
+      "largeImage": "img/team/workshops/devanandha.jpg",
+      "smallImage": "img/team/workshops/devanandha_small.jpg"
+    },
+    {
+      "title": "Intro To Computer Science",
+      "largeImage": "img/team/workshops/pranav2.jpg",
+      "smallImage": "img/team/workshops/pranav2.jpg"
+    },
+    {
+      "title": "Git Basics",
+      "largeImage": "img/team/workshops/festin.jpg",
+      "smallImage": "img/team/workshops/festin_small.jpg"
+    },
+    {
+      "title": "Offline Session",
+      "largeImage": "img/team/workshops/offline.jpg",
+      "smallImage": "img/team/workshops/offline_small.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-search",
+      "name": "AI/ML Research",
+      "text": "Exploring cutting-edge advancements in AI and machine learning, focusing on innovative models, algorithms, and applications."
+    },
+    {
+      "icon": "fa fa-laptop",
+      "name": "Custom AI Solutions",
+      "text": "Developing tailored AI solutions to solve real-world problems, optimizing performance, and enhancing efficiency for businesses and individuals."
+    },
+    {
+      "icon": "fa fa-graduation-cap",
+      "name": "AI Education and Workshops",
+      "text": "Conducting interactive workshops and training sessions to empower learners with AI/ML skills, from beginners to advanced practitioners."
+    },
+    {
+      "icon": "fa fa-users",
+      "name": "Peer-to-Peer Learning",
+      "text": "Encouraging knowledge exchange among AI enthusiasts through discussions, mentorship, and group learning initiatives."
+    },
+    {
+      "icon": "fa fa-globe",
+      "name": "Community Collaboration",
+      "text": "Connecting AI enthusiasts and professionals worldwide to share knowledge, collaborate on projects, and grow together."
+    },
+    {
+      "icon": "fa fa-tasks",
+      "name": "Project-Based Learning",
+      "text": "Hands-on approach to AI education, where learners build real-world projects to apply their skills, gain experience, and showcase their expertise."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRXm-Ko_0KpWmOK0VJiK1hGNw99PYJeulLwezkQg3t5FGcU4Ure0G29JwJCR-ohp6w_cwfd0jqc27NEOKdS2jjY5Q",
+      "text": "\"The future is ours to shape, and artificial intelligence is the most powerful tool we have for doing so.\"",
+      "name": "Fei-Fei Li"
+    },
+    {
+      "img": "/img/testimonials-eliezer-yudkowsky.webp",
+      "text": "\"By far, the greatest danger of Artificial Intelligence is that people conclude too early that they understand it.\"",
+      "name": "Eliezer Yudkowsky"
+    },
+    {
+      "img": "https://m.media-amazon.com/images/S/amzn-author-media-prod/b2a43a485uokuohjp5l7peo9f0.jpg",
+      "text": "\"The key to artificial intelligence has always been the representation. AI will shape the future\"",
+      "name": "Jeff Hawkins"
+    },
+    {
+      "img": "/img/testimonials-andrew-ng.webp",
+      "text": "\"AI will transform industries, but it’s up to us to ensure it serves humanity’s best interests.\"",
+      "name": "Andrew Ng"
+    },
+    {
+      "img": "/img/testimonials-edsger-dijkstra.webp",
+      "text": "\"The question of whether machines can think is about as relevant as the question of whether submarines can swim.\"",
+      "name": "Edsger Dijkstra"
+    },
+    {
+      "img": "/img/testimonials-yann-lecun.webp",
+      "text": "\"Our intelligence is what makes us human, and AI is an extension of that quality.\"",
+      "name": "Yann LeCun"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/blackandwhite/Pranav.png",
+      "name": "Pranav Krishna Vadhayar",
+      "job": "Founder"
+    },
+    {
+      "img": "img/team/festin.jpg",
+      "name": "Festin Biju",
+      "job": "Lead"
+    },
+    {
+      "img": "img/blackandwhite/Deva.png",
+      "name": "Deva Nanda Nair",
+      "job": "Tech-Lead"
+    },
+    {
+      "img": "img/blackandwhite/Irine.png",
+      "name": "Irine Paul",
+      "job": "Creative Lead"
+    },
+    {
+      "img": "img/team/alwin.png",
+      "name": "Alwin Sajan",
+      "job": "Research Lead"
+    },
+    {
+      "img": "img/team/manu.jpg",
+      "name": "Manu Madhu",
+      "job": "Research Lead"
+    },
+    {
+      "img": "img/blackandwhite/Serena.png",
+      "name": "Sereena joshy",
+      "job": "Out Reach Lead"
+    },
+    {
+      "img": "img/blackandwhite/leela.jpg",
+      "name": "Leela Bobby",
+      "job": "Out Reach Lead"
+    }
+  ],
+  "Contact": {
+    "address": "Toc H Institute of Science and Technology Kochi",
+    "phone": "+91 7306067529",
+    "email": "coreaitoch@gmail.com",
+    "instagram": "core.ai_toch",
+    "twitter": "core.ai_toch",
+    "Thread": "core.ai_toch"
+  },
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Lorem ipsum",
+      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+    }
+  ]
+}
