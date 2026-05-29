@@ -151,7 +151,7 @@ export default function Navigation() {
     return () => {
       cancelAnimationFrame(frameId);
     };
-  }, []);
+  }, [pathname]);
 
 const linkStyle = (section: SectionId): CSSProperties => ({
   padding: "10px 16px",
