@@ -32,9 +32,10 @@ export interface TestimonialData {
 }
 
 export interface TeamMember {
-  img: string;
   name: string;
   job: string;
+  img?: string;
+  imageSrc?: string;
 }
 
 export interface ContactData {
