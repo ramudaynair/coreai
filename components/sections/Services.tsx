@@ -11,47 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface ServicesProps { data?: ServiceData[]; }
 
-type IconProps = { size?: number; strokeWidth?: number };
-
-const ResearchIcon = ({ size = 20, strokeWidth = 1.5 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="11" cy="11" r="6" />
-    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-  </svg>
-);
-
-const EducationIcon = ({ size = 20, strokeWidth = 1.5 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-    <path d="M2 17l10 5 10-5" />
-    <path d="M2 12l10 5 10-5" />
-  </svg>
-);
-
-const CommunityIcon = ({ size = 20, strokeWidth = 1.5 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M17 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2" />
-    <circle cx="12" cy="7" r="4" />
-  </svg>
-);
-
-const ProjectsIcon = ({ size = 20, strokeWidth = 1.5 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
-    <rect x="3" y="3" width="7" height="7" />
-    <rect x="14" y="3" width="7" height="7" />
-    <rect x="3" y="14" width="7" height="7" />
-    <rect x="14" y="14" width="7" height="7" />
-  </svg>
-);
-
 const focusAreas = [
-  { num: "01", word: "RESEARCH", title: "Innovative Ideas", desc: "Advancing knowledge through student-driven projects that challenge conventional thinking.", icon: ResearchIcon },
-  { num: "02", word: "EDUCATION", title: "Hands-on Learning", desc: "Practical workshops and courses that build deep technical skills.", icon: EducationIcon },
-  { num: "03", word: "COMMUNITY", title: "Collaborative Network", desc: "A supportive community connecting students, mentors, and industry partners.", icon: CommunityIcon },
-  { num: "04", word: "PROJECTS", title: "Real Projects", desc: "Project-driven learning that delivers tangible outcomes and portfolio work.", icon: ProjectsIcon },
+  { num: "01", word: "RESEARCH", title: "Innovative Ideas", desc: "Advancing knowledge through student-driven projects that challenge conventional thinking.", glyph: "✦" },
+  { num: "02", word: "LEARN", title: "Hands-on Learning", desc: "Practical workshops and courses that build deep technical skills.", glyph: "◇" },
+  { num: "03", word: "CONNECT", title: "Collaborative Network", desc: "A supportive community connecting students, mentors, and industry partners.", glyph: "⬡" },
+  { num: "04", word: "BUILD", title: "Real Projects", desc: "Project-driven learning that delivers tangible outcomes and portfolio work.", glyph: "◈" },
 ];
 
-function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, word: string, title: string, desc: string, icon?: (props: IconProps) => React.ReactNode }) {
+function EditorialCard({ num, word, title, desc, glyph }: { num: string, word: string, title: string, desc: string, glyph: string }) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -73,6 +40,7 @@ function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, wo
       onMouseLeave={() => setIsHovered(false)}
       animate={{
         y: isHovered ? -2 : 0,
+        backgroundColor: isHovered ? "#111111" : "#0D0D0D",
       }}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="vm-small-block"
@@ -80,7 +48,7 @@ function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, wo
         position: "relative",
         height: "320px",
         background: "#0D0D0D",
-        border: `1px solid ${isHovered ? "rgba(255,255,255,0.14)" : "rgba(255,255,255,0.08)"}`,
+        border: `1px solid ${isHovered ? "rgba(139,92,246,0.48)" : "rgba(139,92,246,0.22)"}`,
         borderRadius: "16px",
         padding: "48px 40px",
         overflow: "hidden",
@@ -88,16 +56,18 @@ function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, wo
         display: "flex",
         flexDirection: "column",
         transition: "border-color 0.3s ease, box-shadow 0.3s ease",
-        boxShadow: isHovered ? "0 12px 24px rgba(0, 0, 0, 0.3)" : "none",
+        boxShadow: isHovered 
+          ? "0 12px 24px rgba(0, 0, 0, 0.3), 0 0 22px rgba(139,92,246,0.14)" 
+          : "0 0 18px rgba(139,92,246,0.05)",
         opacity: 0,
       }}
     >
-      {/* 1. Cursor-following radial glow */}
+      {/* Cursor-following radial spotlight */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(124, 58, 237, 0.12), transparent 60%)`,
+          background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(124, 58, 237, 0.18), transparent 60%)`,
           opacity: isHovered ? 1 : 0,
           transition: "opacity 0.4s ease",
           pointerEvents: "none",
@@ -105,7 +75,7 @@ function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, wo
         }}
       />
 
-      {/* 2. Absolute Watermark Word */}
+      {/* Absolute Watermark Word */}
       <div
         style={{
           position: "absolute",
@@ -148,13 +118,13 @@ function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, wo
           }} />
         </div>
 
-        {/* Top Right Icon (area-specific) */}
-        <div style={{ transition: "color 0.3s ease", color: isHovered ? "rgba(255,255,255,0.6)" : "rgba(255,255,255,0.18)" }}>
-          {Icon ? <Icon size={18} strokeWidth={1.6} /> : (
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={isHovered ? "rgba(255,255,255,0.4)" : "rgba(255,255,255,0.15)"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "stroke 0.3s ease" }}>
-              <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" />
-            </svg>
-          )}
+        {/* Top Right Glyph */}
+        <div style={{ 
+          fontSize: "14px",
+          color: isHovered ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.12)",
+          transition: "color 0.3s ease",
+        }}>
+          {glyph}
         </div>
       </div>
 
@@ -192,6 +162,8 @@ function EditorialCard({ num, word, title, desc, icon: Icon }: { num: string, wo
 
 export default function Services({ data }: ServicesProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const [visionHovered, setVisionHovered] = useState(false);
+  const [missionHovered, setMissionHovered] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -269,57 +241,48 @@ export default function Services({ data }: ServicesProps) {
         }}
       >
         {/* TOP INTRO AREA */}
-        <div className="vm-intro" style={{ opacity: 0, marginBottom: "120px" }}>
-          <div
-            className="eyebrow"
-            style={{
-              fontFamily: "'SF Mono', 'Fira Code', monospace",
-              fontSize: "11px",
-              fontWeight: 600,
-              letterSpacing: "0.12em",
-              color: "rgba(139, 92, 246, 0.9)",
-              marginBottom: "24px",
-              textTransform: "uppercase"
-            }}
-          >
-            Our Purpose
+        <div className="vm-intro" style={{ 
+          opacity: 0, 
+          marginBottom: "120px",
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "16px",
+        }}>
+          {/* Left Column */}
+          <div>
+            <div className="eyebrow" style={{ color: "#5C46B6", display: "inline-flex", alignItems: "center", gap: "10px" }}>
+              <span style={{ width: "1px", height: "16px", background: "#5C46B6", display: "inline-block", borderRadius: 0 }} />
+              Our Purpose
+            </div>
+
+            <h2
+              style={{
+                fontFamily: "var(--font-heading), Space Grotesk, sans-serif",
+                fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.05,
+                color: "#fff",
+              }}
+            >
+              Vision &<br />
+              <span style={{ color: "#5C46B6" }}>Mission</span>
+            </h2>
           </div>
 
-          <h2
-            style={{
-              fontFamily: "var(--font-heading), Space Grotesk, sans-serif",
-              fontSize: "clamp(2rem, 5vw, 3rem)",
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.08,
-              color: "#fff",
-              marginBottom: "12px",
-            }}
-          >
-            Vision & Mission
-          </h2>
-
-          <p style={{
-            margin: 0,
-            fontFamily: "var(--font-heading), Space Grotesk, sans-serif",
-            fontSize: "20px",
-            color: "rgba(255,255,255,0.85)",
-            marginBottom: "24px",
-            lineHeight: 1.2,
-          }}>
-            Building Kerala's Student-Led AI Ecosystem
-          </p>
-
+          {/* Right Column */}
           <p
             style={{
-              fontSize: "16px",
-              color: "rgba(255,255,255,0.5)",
-              lineHeight: 1.8,
-              maxWidth: "600px",
+              fontSize: "14px",
+              color: "rgba(255,255,255,0.3)",
+              maxWidth: "280px",
+              lineHeight: 1.65,
+              fontFamily: "var(--font-sans), Inter, sans-serif",
             }}
           >
-            We are building a collaborative AI community where research,
-            learning, innovation, and practical building come together — a platform where ideas extend beyond the classroom and spark conversations that reshape technology.
+            Our vision is to lead in AI innovation, and our mission is to empower individuals and organizations with transformative AI solutions for growth and collaboration.
           </p>
         </div>
 
@@ -334,8 +297,12 @@ export default function Services({ data }: ServicesProps) {
           }}
         >
           {/* OUR VISION */}
-          <div
-            className="vm-large-block"
+          <motion.div
+            className="vm-large-block vision-card"
+            onMouseEnter={() => setVisionHovered(true)}
+            onMouseLeave={() => setVisionHovered(false)}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             style={{
               opacity: 0,
               background: "linear-gradient(180deg, #111111 0%, #0D0D0D 100%)",
@@ -348,19 +315,55 @@ export default function Services({ data }: ServicesProps) {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 12px 28px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.03)",
-              transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
             }}
           >
+            {/* Bottom-left corner glow on hover */}
+            <div
+              className="vision-corner-glow"
+              style={{
+                position: "absolute",
+                bottom: "-100px",
+                left: "-100px",
+                width: "350px",
+                height: "350px",
+                borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.08) 25%, rgba(139,92,246,0.03) 50%, transparent 70%)",
+                filter: "blur(60px)",
+                opacity: visionHovered ? 1 : 0,
+                transition: "opacity 0.4s ease",
+                pointerEvents: "none",
+                zIndex: 1,
+              }}
+            />
+
+            {/* Extremely subtle watermark */}
+            <div 
+              className="vision-watermark"
+              style={{
+                position: "absolute",
+                bottom: "-5%",
+                right: "-5%",
+                fontSize: "140px",
+                fontWeight: 800,
+                fontFamily: "var(--font-heading), sans-serif",
+                color: "#fff",
+                opacity: visionHovered ? 0.03 : 0.015,
+                pointerEvents: "none",
+                letterSpacing: "-0.04em",
+                zIndex: 1,
+                transition: "opacity 0.4s ease",
+            }}>
+              VISION
+            </div>
+
             <div
               style={{
-                fontFamily: "'SF Mono', 'Fira Code', monospace",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                color: "rgba(139, 92, 246, 0.9)",
+                color: "#5C46B6",
                 marginBottom: "32px",
-                textTransform: "uppercase",
+                position: "relative",
+                zIndex: 2,
               }}
+              className="eyebrow"
             >
               Our Vision
             </div>
@@ -375,9 +378,11 @@ export default function Services({ data }: ServicesProps) {
                 letterSpacing: "-0.02em",
                 marginBottom: "20px",
                 maxWidth: "90%",
+                position: "relative",
+                zIndex: 2,
               }}
             >
-              Kerala's Leading Student AI Hub
+              Shaping Kerala's AI Future
             </h3>
 
             <div style={{ 
@@ -385,7 +390,9 @@ export default function Services({ data }: ServicesProps) {
               width: "70px", 
               background: "#5C46B6",
               boxShadow: "0 0 12px rgba(92, 70, 182, 0.6)",
-              marginBottom: "24px" 
+              marginBottom: "24px",
+              position: "relative",
+              zIndex: 2,
             }} />
 
             <p
@@ -395,32 +402,21 @@ export default function Services({ data }: ServicesProps) {
                 fontSize: "15px",
                 lineHeight: 1.7,
                 color: "rgba(255,255,255,0.75)",
+                position: "relative",
+                zIndex: 2,
               }}
             >
-              To establish Kerala as a hub for student-driven AI innovation, where every curious mind has access to world-class resources, mentorship, and collaborative opportunities in artificial intelligence—shaping the future of technology responsibly.
+              To establish Kerala as a hub for student-driven AI innovation, where curious minds gain access to world-class resources, mentorship, and opportunities to build the future.
             </p>
-            
-            {/* Extremely subtle watermark */}
-            <div style={{
-                position: "absolute",
-                bottom: "-5%",
-                right: "-5%",
-                fontSize: "140px",
-                fontWeight: 800,
-                fontFamily: "var(--font-heading), sans-serif",
-                color: "#fff",
-                opacity: 0.015,
-                pointerEvents: "none",
-                letterSpacing: "-0.04em",
-                zIndex: 0
-            }}>
-              VISION
-            </div>
-          </div>
+          </motion.div>
 
           {/* OUR MISSION */}
-          <div
-            className="vm-large-block"
+          <motion.div
+            className="vm-large-block mission-card"
+            onMouseEnter={() => setMissionHovered(true)}
+            onMouseLeave={() => setMissionHovered(false)}
+            whileHover={{ y: -4 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             style={{
               opacity: 0,
               background: "linear-gradient(180deg, #111111 0%, #0D0D0D 100%)",
@@ -433,19 +429,55 @@ export default function Services({ data }: ServicesProps) {
               display: "flex",
               flexDirection: "column",
               boxShadow: "0 12px 28px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.03)",
-              transition: "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
             }}
           >
+            {/* Bottom-left corner glow on hover */}
+            <div
+              className="mission-corner-glow"
+              style={{
+                position: "absolute",
+                bottom: "-100px",
+                left: "-100px",
+                width: "350px",
+                height: "350px",
+                borderRadius: "50%",
+                background: "radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.08) 25%, rgba(139,92,246,0.03) 50%, transparent 70%)",
+                filter: "blur(60px)",
+                opacity: missionHovered ? 1 : 0,
+                transition: "opacity 0.4s ease",
+                pointerEvents: "none",
+                zIndex: 1,
+              }}
+            />
+
+            {/* Extremely subtle watermark */}
+            <div 
+              className="mission-watermark"
+              style={{
+                position: "absolute",
+                bottom: "-5%",
+                right: "-5%",
+                fontSize: "140px",
+                fontWeight: 800,
+                fontFamily: "var(--font-heading), sans-serif",
+                color: "#fff",
+                opacity: missionHovered ? 0.03 : 0.015,
+                pointerEvents: "none",
+                letterSpacing: "-0.04em",
+                zIndex: 1,
+                transition: "opacity 0.4s ease",
+            }}>
+              MISSION
+            </div>
+
             <div
               style={{
-                fontFamily: "'SF Mono', 'Fira Code', monospace",
-                fontSize: "11px",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                color: "rgba(139, 92, 246, 0.9)",
+                color: "#5C46B6",
                 marginBottom: "32px",
-                textTransform: "uppercase",
+                position: "relative",
+                zIndex: 2,
               }}
+              className="eyebrow"
             >
               Our Mission
             </div>
@@ -460,9 +492,11 @@ export default function Services({ data }: ServicesProps) {
                 letterSpacing: "-0.02em",
                 marginBottom: "20px",
                 maxWidth: "90%",
+                position: "relative",
+                zIndex: 2,
               }}
             >
-              Learn. Build. Share.
+             Empowering Through AI
             </h3>
 
             <div style={{ 
@@ -470,7 +504,9 @@ export default function Services({ data }: ServicesProps) {
               width: "70px", 
               background: "#5C46B6",
               boxShadow: "0 0 12px rgba(92, 70, 182, 0.6)",
-              marginBottom: "24px" 
+              marginBottom: "24px",
+              position: "relative",
+              zIndex: 2,
             }} />
 
             <p
@@ -480,63 +516,55 @@ export default function Services({ data }: ServicesProps) {
                 fontSize: "15px",
                 lineHeight: 1.7,
                 color: "rgba(255,255,255,0.75)",
+                position: "relative",
+                zIndex: 2,
               }}
             >
-              We build an inclusive community that bridges the gap between academic theory and real-world AI applications. Through workshops, collaborative projects, and peer learning, we empower students to become tomorrow's AI leaders who build with purpose.
+              We build an inclusive community that bridges academic learning and real-world applications through workshops, projects, mentorship, and collaboration.
             </p>
-            
-            {/* Extremely subtle watermark */}
-            <div style={{
-                position: "absolute",
-                bottom: "-5%",
-                right: "-5%",
-                fontSize: "140px",
-                fontWeight: 800,
-                fontFamily: "var(--font-heading), sans-serif",
-                color: "#fff",
-                opacity: 0.015,
-                pointerEvents: "none",
-                letterSpacing: "-0.04em",
-                zIndex: 0
-            }}>
-              MISSION
-            </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Focus Areas Header */}
-        <div style={{ marginBottom: "48px" }}>
-          <div style={{
-            fontFamily: "'SF Mono', 'Fira Code', monospace",
-            fontSize: "11px",
-            fontWeight: 600,
-            letterSpacing: "0.12em",
-            color: "rgba(139, 92, 246, 0.9)",
-            marginBottom: "16px",
-            textTransform: "uppercase",
-          }}>
-            Core Focus Areas
+        <div style={{ 
+          marginBottom: "48px",
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: "16px",
+        }}>
+          <div>
+            <div className="eyebrow" style={{ 
+              color: "#5C46B6", 
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+            }}>
+              <span style={{ width: "1px", height: "16px", background: "#5C46B6", display: "inline-block", borderRadius: 0 }} />
+              Our Focus
+            </div>
+            
+            <h3 style={{
+              fontFamily: "var(--font-heading), Space Grotesk, sans-serif",
+              fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+              fontWeight: 600,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.05,
+              color: "#fff",
+            }}>
+              Ideas Into <span style={{ color: "#5C46B6" }}>Action</span>
+            </h3>
           </div>
           
-          <h3 style={{
-            fontFamily: "var(--font-heading), Space Grotesk, sans-serif",
-            fontSize: "clamp(1.5rem, 3vw, 2rem)",
-            fontWeight: 700,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            color: "#fff",
-            marginBottom: "12px",
-          }}>
-            Building Through Four Pillars
-          </h3>
-          
           <p style={{
-            fontSize: "15px",
-            color: "rgba(255,255,255,0.45)",
-            lineHeight: 1.7,
-            maxWidth: "560px",
+            fontSize: "14px",
+            color: "rgba(255,255,255,0.3)",
+            maxWidth: "280px",
+            lineHeight: 1.65,
+            fontFamily: "var(--font-sans), Inter, sans-serif",
           }}>
-            Each focus area represents a commitment to excellence, collaboration, and real-world impact in AI.
+            Research, education, collaboration, and real-world projects — the pillars that turn curiosity into innovation.
           </p>
         </div>
 
@@ -556,16 +584,27 @@ export default function Services({ data }: ServicesProps) {
               word={area.word} 
               title={area.title} 
               desc={area.desc} 
-              icon={area.icon}
+              glyph={area.glyph}
             />
           ))}
         </div>
 
         <style jsx>{`
-          .vm-large-block:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.16);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(139, 92, 246, 0.08), 0 10px 24px rgba(139, 92, 246, 0.08);
+          .vision-card:hover,
+          .mission-card:hover {
+            border-color: rgba(139,92,246,0.8) !important;
+            box-shadow: 0 0 40px rgba(139,92,246,0.15) !important;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+          }
+
+          .vision-card:hover .vision-corner-glow,
+          .mission-card:hover .mission-corner-glow {
+            opacity: 1;
+          }
+
+          .vision-card:hover .vision-watermark,
+          .mission-card:hover .mission-watermark {
+            opacity: 0.03;
           }
 
           @media (max-width: 1024px) {
