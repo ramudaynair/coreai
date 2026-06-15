@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { HeaderData } from "@/types";
+import AmbientAtmosphere from "@/components/AmbientAtmosphere";
 
 interface HeaderProps { data?: HeaderData; }
 
@@ -46,6 +47,9 @@ export default function Header({ data }: HeaderProps) {
         padding: "0 0 80px",
       }}
     >
+      {/* Ambient atmosphere */}
+      <AmbientAtmosphere variant="hero" />
+
       {/* Background image */}
       <div
         style={{
@@ -123,7 +127,17 @@ export default function Header({ data }: HeaderProps) {
             }}
           >
             Welcome To{" "}
-            <span style={{ color: PURPLE }}>Core AI</span>
+            <span style={{ color: PURPLE, position: "relative" }}>
+              Core AI
+              {/* Glow behind Core AI */}
+              <span style={{
+                position: "absolute",
+                inset: "-20px -30px",
+                background: "radial-gradient(ellipse, rgba(92,70,182,0.4) 0%, transparent 70%)",
+                filter: "blur(40px)",
+                zIndex: -1,
+              }} />
+            </span>
             <br />
             Toc H
           </h1>
@@ -246,8 +260,8 @@ export default function Header({ data }: HeaderProps) {
           }}
         >
           {[
-            { value: "18+",    label: "Workshops" },
-            { value: "2023",   label: "Founded" },
+            { value: "10+",    label: "Workshops" },
+            { value: "2024",   label: "Founded" },
             { value: "Toc H",  label: "Institute" },
             { value: "Kerala", label: "India" },
           ].map(({ value, label }) => (

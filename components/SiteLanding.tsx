@@ -64,7 +64,7 @@ export default function SiteLanding({ section }: { section?: SectionId } = {}) {
           <Navigation />
         </Suspense>
         <Header data={landingData.Header} />
-        <About data={landingData.About} />
+        <About />
         <Services data={landingData.Services} />
         <Gallery data={landingData.Gallery} />
         <Team data={landingData.Team} />

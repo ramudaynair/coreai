@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ContactData } from "@/types";
 import { Send } from "lucide-react";
 import { motion } from "framer-motion";
+import AmbientAtmosphere from "@/components/AmbientAtmosphere";
 import type { ReactElement } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -137,10 +138,11 @@ export default function Contact({ data }: ContactProps) {
   });
 
   return (
-    <section id="contact" ref={sectionRef} style={{ padding: "128px 0 0", background: "#080808", position: "relative" }}>
+    <section id="contact" ref={sectionRef} style={{ padding: "128px 0 0", background: "#080808", position: "relative", overflow: "hidden" }}>
+      <AmbientAtmosphere variant="default" />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "rgba(255,255,255,0.05)" }} />
 
-      <div style={{ maxWidth: "1160px", margin: "0 auto", padding: "0 32px" }}>
+      <div style={{ maxWidth: "1300px", margin: "0 auto", padding: "0 32px" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -381,7 +383,7 @@ export default function Contact({ data }: ContactProps) {
         marginTop: "128px",
         borderTop: "1px solid rgba(255,255,255,0.05)",
         padding: "28px 32px",
-        maxWidth: "1160px",
+        maxWidth: "1300px",
         margin: "128px auto 0",
         display: "flex",
         alignItems: "center",
